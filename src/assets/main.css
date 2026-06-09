@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-paper text-ink font-sans;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-pine-400 ring-offset-2 ring-offset-paper;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5
+           text-sm font-semibold transition-all duration-150 disabled:opacity-50
+           disabled:cursor-not-allowed select-none;
+  }
+  .btn-primary {
+    @apply btn bg-pine-500 text-white hover:bg-pine-600 active:scale-[.98]
+           shadow-[0_1px_2px_rgba(8,42,32,.2)];
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-graphite hover:bg-cork hover:text-ink;
+  }
+  .btn-outline {
+    @apply btn border border-hairline bg-white text-ink hover:border-pine-300
+           hover:bg-pine-50;
+  }
+  .btn-danger {
+    @apply btn bg-white border border-red-200 text-red-600 hover:bg-red-50;
+  }
+  .field {
+    @apply w-full rounded-lg border border-hairline bg-white px-3.5 py-2.5 text-sm
+           text-ink placeholder:text-graphite/60 transition-colors
+           focus:border-pine-400 focus:ring-0;
+  }
+  .field-error {
+    @apply border-red-300 focus:border-red-400;
+  }
+  .label {
+    @apply block font-mono text-[11px] font-medium uppercase tracking-[.12em]
+           text-graphite mb-1.5;
+  }
+  .card {
+    @apply rounded-xl border border-hairline bg-white shadow-lift;
+  }
+}
+
+@layer utilities {
+  /* Subtle paper grain for the canvas / sticky notes */
+  .paper-grain {
+    background-image:
+      radial-gradient(rgba(31,36,33,.025) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+  .cork-grain {
+    background-color: #F3EFE6;
+    background-image:
+      radial-gradient(rgba(31,36,33,.04) 1px, transparent 1px),
+      radial-gradient(rgba(31,36,33,.03) 1px, transparent 1px);
+    background-size: 16px 16px, 24px 24px;
+    background-position: 0 0, 8px 12px;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}

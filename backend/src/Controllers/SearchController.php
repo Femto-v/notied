@@ -76,6 +76,7 @@ class SearchController extends BaseController
         if ($start > 0) {
             $snippet = '…' . $snippet;
         }
+
         if (mb_strlen($content) > $start + 120) {
             $snippet .= '…';
         }

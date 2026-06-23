@@ -185,6 +185,7 @@ class BoardController extends BaseController
     {
         $stmt = $this->db->prepare('SELECT * FROM boards WHERE id = ?');
         $stmt->execute([$id]);
+
         return $stmt->fetch();
     }
 
@@ -198,5 +199,4 @@ class BoardController extends BaseController
             'INSERT INTO activity (user_id, type, board_id, board_title, note_id, created_at) VALUES (?, ?, ?, ?, ?, ?)'
         )->execute([$userId, $type, $boardId, $boardTitle, $noteId, $this->now()]);
     }
-
 }

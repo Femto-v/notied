@@ -119,11 +119,4 @@ class AuthController extends BaseController
         return JWT::encode($payload, $this->jwtSecret, 'HS256');
     }
 
-    /**
-     * Returns the current Unix timestamp in milliseconds.
-     */
-    private function now(): int
-    {
-        return (int) round(microtime(true) * 1000);
-    }
 }

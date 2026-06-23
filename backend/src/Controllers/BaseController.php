@@ -12,6 +12,14 @@ use Psr\Http\Message\ResponseInterface as Response;
 abstract class BaseController
 {
     /**
+     * Returns the current Unix timestamp in milliseconds.
+     */
+    protected function now(): int
+    {
+        return (int) round(microtime(true) * 1000);
+    }
+
+    /**
      * Writes JSON-encoded data to the response with the appropriate `Content-Type` header.
      * 
      * @param Response $response The PSR-7 response object to write to.

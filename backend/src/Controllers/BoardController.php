@@ -199,11 +199,4 @@ class BoardController extends BaseController
         )->execute([$userId, $type, $boardId, $boardTitle, $noteId, $this->now()]);
     }
 
-    /**
-     * Returns the current Unix timestamp in milliseconds.
-     */
-    private function now(): int
-    {
-        return (int) round(microtime(true) * 1000);
-    }
 }
